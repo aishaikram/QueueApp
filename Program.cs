@@ -8,7 +8,7 @@ namespace QueueApp
 {
     class Program
     {
-        const string  connectionstr = "DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=storageacct11082021;AccountKey=7SMsPBZ29t/xqSR5fHXaPOi8ssscJEbpnEcbsxgXcnSMov6GUohuEDs6l6kkKwFzQPQ7r39IkgRHMsgXTbrZGA==";
+        const string  connectionstr = "<DefaultEndpointsProtocol=https;EndpointSuffix=core.windows.net;AccountName=storageacct11082021;AccountKey=<Storage Account Key>";
         const string queueName = "queue11082021";
         static async Task Main(string[] args)
         {
@@ -62,7 +62,7 @@ namespace QueueApp
                     //convert to string
                     string messageContent = msg.AsString;
                     // Process the message
-                    Console.WriteLine("Message Received is" + msg.AsString);
+                    Console.WriteLine("Message Received is " + msg.AsString);
                     Console.WriteLine("Delete Message from Queue after Processing (otherwise msg will come back in 30 secs to manage at-least once delivery)....");
                     await queue.DeleteMessageAsync(msg);         
                     return messageContent;
